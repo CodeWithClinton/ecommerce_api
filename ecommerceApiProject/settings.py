@@ -35,7 +35,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS=["https://ecommerceapi-production-7bf3.up.railway.app", "http://127.0.0.1:8000"]
+CSRF_TRUSTED_ORIGINS=["https://ecommerceapi-production-7bf3.up.railway.app", "http://127.0.0.1:8000"]
 
 
 # Application definition
@@ -87,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ecommerceApiProject.wsgi.application'
 
-DB = os.environ.get("DB_LIVE")
+DB = os.environ.get("DB")
 
 
 # Database
@@ -96,28 +96,33 @@ DB = os.environ.get("DB_LIVE")
 
 
 
-
-
-if DB in ["False", False]:
-
-    DATABASES = {
+DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.sqlite3',
                 'NAME': BASE_DIR / 'db.sqlite3',
             }
         }
+
+# if DB in ["False", False]:
+
+#     DATABASES = {
+#             'default': {
+#                 'ENGINE': 'django.db.backends.sqlite3',
+#                 'NAME': BASE_DIR / 'db.sqlite3',
+#             }
+#         }
     
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get("DB_NAME"),
-            'USER': os.environ.get("DB_USER"),
-            'PASSWORD': os.environ.get("DB_PASSWORD"),
-            'HOST': os.environ.get("DB_HOST"),  
-            'PORT': os.environ.get("DB_PORT"),     
-        }
-    }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': os.environ.get("DB_NAME"),
+#             'USER': os.environ.get("DB_USER"),
+#             'PASSWORD': os.environ.get("DB_PASSWORD"),
+#             'HOST': os.environ.get("DB_HOST"),  
+#             'PORT': os.environ.get("DB_PORT"),     
+#         }
+#     }
 
 
 
