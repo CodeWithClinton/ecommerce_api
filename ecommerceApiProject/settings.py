@@ -35,6 +35,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS=["https://ecommerceapi-production-7bf3.up.railway.app", "http://127.0.0.1:8000"]
 
 
 # Application definition
@@ -93,16 +94,6 @@ DB = os.environ.get("DB_LIVE")
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases 
 
 
-# DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': os.environ.get("DB_NAME"),
-#             'USER': os.environ.get("DB_USER"),
-#             'PASSWORD': os.environ.get("DB_PASSWORD"),
-#             'HOST': os.environ.get("DB_HOST"),  
-#             'PORT': os.environ.get("DB_PORT"),     
-#         }
-#     }
 
 
 
