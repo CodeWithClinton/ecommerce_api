@@ -87,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ecommerceApiProject.wsgi.application'
 
-DB_LIVE = os.environ.get("DB_LIVE")
+DB_LIVE = os.getenv("DB_LIVE")
 
 
 # Database
@@ -96,24 +96,7 @@ DB_LIVE = os.environ.get("DB_LIVE")
 
 
 
-# DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': os.environ.get("DB_NAME"),
-#             'USER': os.environ.get("DB_USER"),
-#             'PASSWORD': os.environ.get("DB_PASSWORD"),
-#             'HOST': os.environ.get("DB_HOST"),  
-#             'PORT': os.environ.get("DB_PORT"),     
-#         }
-#     }
 
-# DATABASES = {
-#             'default': {
-#                 'ENGINE': 'django.db.backends.sqlite3',
-#                 'NAME': BASE_DIR / 'db.sqlite3',
-#             }
-#         }
-    
 
 if DB_LIVE in ["False", False]:
 
@@ -128,13 +111,18 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get("DB_NAME"),
-            'USER': os.environ.get("DB_USER"),
-            'PASSWORD': os.environ.get("DB_PASSWORD"),
-            'HOST': os.environ.get("DB_HOST"),  
-            'PORT': os.environ.get("DB_PORT"),     
+            'NAME': os.getenv("DB_NAME"),
+            'USER': os.getenv("DB_USER"),
+            'PASSWORD': os.getenv("DB_PASSWORD"),
+            'HOST': os.getenv("DB_HOST"),  
+            'PORT': os.getenv("DB_PORT"),     
         }
     }
+
+
+
+
+
 
 
 
