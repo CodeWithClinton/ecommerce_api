@@ -87,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ecommerceApiProject.wsgi.application'
 
-DB = os.environ.get("DB")
+DB_LIVE = os.environ.get("DB_LIVE")
 
 
 # Database
@@ -115,7 +115,7 @@ DB = os.environ.get("DB")
 #         }
     
 
-if DB in ["False", False]:
+if DB_LIVE in ["False", False]:
 
     DATABASES = {
             'default': {
